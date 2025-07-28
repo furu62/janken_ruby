@@ -1,5 +1,3 @@
-#puts "じゃんけん..."
-
 def janken
     puts "じゃんけん..."
     puts "0(ぐー)1(ちょき)2(ぱー)3(戦わない)"
@@ -42,31 +40,22 @@ def janken
           (player_choice == 1 && computer_choice == 2) ||
           (player_choice == 2 && computer_choice == 0)
         
-        $win = "win"
-        p attimuite_hoi
-     #ここであっちむいてホイを呼び出す   
-
+        $win == "win"
+        p attimuite_hoi  
 
     elsif player_choice == computer_choice
         puts "あいこで..."
         return true
-    elsif
-        #puts "あなたの負けです"
 
-        $lose = "lose"
+    elsif
+        $lose == "lose"
         p attimuite_hoi    
         
-        #return true
-
-
-     #ここでもあっちむいてほいを呼び出す
-
     end
 end
 
 
 def attimuite_hoi
-
     puts "あっちむいて～"
     puts "0(上)1(下)2(左)3(右)"
 
@@ -101,12 +90,6 @@ def attimuite_hoi
     else
         janken
     end
-
-    #if my_choice == your_choice
-    #    puts "あなたの勝ちです！"
-    #    return true
-    #elsif 
-    #end
 end               
 
 next_game = true
