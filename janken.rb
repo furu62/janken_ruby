@@ -1,8 +1,7 @@
-
-
-puts "じゃんけん..."
+#puts "じゃんけん..."
 
 def janken
+    puts "じゃんけん..."
     puts "0(ぐー)1(ちょき)2(ぱー)3(戦わない)"
 
     player_choice = gets.to_i
@@ -29,6 +28,8 @@ def janken
     puts "あなた:#{player_hand}"
     puts "相手:#{computer_hand}"
 
+    $win = "win"
+    $lose = "lose"
 
     if player_choice == 3
         puts "ゲームを終了します"
@@ -41,51 +42,72 @@ def janken
           (player_choice == 1 && computer_choice == 2) ||
           (player_choice == 2 && computer_choice == 0)
         
-            puts "あっちむいて～"
-            puts "0(上)1(下)2(左)3(右)"
+        $win = "win"
+        p attimuite_hoi
+     #ここであっちむいてホイを呼び出す   
 
-            my_choice = gets.to_i
-
-            your_choice = rand(4)
-
-            my_hand = case my_choice
-                when 0 then "上"
-                when 1 then "下"
-                when 2 then "左"
-                when 3 then "右"
-            end
-
-            your_hand = case your_choice
-                when 0 then "上"
-                when 1 then "下"
-                when 2 then "左"
-                when 3 then "右"
-            end
-
-            puts "ほい！"
-            puts "----------"
-            puts "あなた:#{my_hand}"
-            puts "相手:#{your_hand}"
-            puts "----------"
-
-
-            if my_choice == your_choice
-                puts "あなたの勝ちです！"
-            else
-                return true
-            end
-
-                
-        
 
     elsif player_choice == computer_choice
         puts "あいこで..."
         return true
     elsif
-        puts "あなたの負けです"
-        return true
+        #puts "あなたの負けです"
+
+        $lose = "lose"
+        p attimuite_hoi    
+        
+        #return true
+
+
+     #ここでもあっちむいてほいを呼び出す
+
     end
 end
+
+
+def attimuite_hoi
+
+    puts "あっちむいて～"
+    puts "0(上)1(下)2(左)3(右)"
+
+    my_choice = gets.to_i
+
+    your_choice = rand(4)
+
+    my_hand = case my_choice
+        when 0 then "上"
+        when 1 then "下"
+        when 2 then "左"
+        when 3 then "右"
+    end
+
+    your_hand = case your_choice
+        when 0 then "上"
+        when 1 then "下"
+        when 2 then "左"
+        when 3 then "右"
+    end
+
+    puts "ほい！"
+    puts "----------"
+    puts "あなた:#{my_hand}"
+    puts "相手:#{your_hand}"
+    puts "----------"
+
+    if (my_hand == your_hand) && ($win == "win")
+        puts "あなたの勝ちです！"
+    elsif (my_hand == your_hand) && ($lose == "lose")
+        puts "あなたの負けです！"
+    else
+        janken
+    end
+
+    #if my_choice == your_choice
+    #    puts "あなたの勝ちです！"
+    #    return true
+    #elsif 
+    #end
+end               
 
 next_game = true
 
